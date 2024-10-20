@@ -2,7 +2,7 @@ import Title from "../title/title.component";
 import Card from "../card/card.component";
 
 
-const LatestBlogs = () => {
+const LatestBlogs = ({mode}) => {
 
 
     const latestBlogs = [
@@ -78,6 +78,7 @@ const LatestBlogs = () => {
                             subTitle={items.type} 
                             title={items.title}
                             text={items.text}
+                            mode={mode}
                         />
                         <div className="flex justify-between">
                           <div className="flex gap-x-2 items-center">

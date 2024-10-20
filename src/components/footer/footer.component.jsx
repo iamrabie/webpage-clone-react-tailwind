@@ -2,7 +2,7 @@ import Button from "../button/button.component";
 import { FaGithub , FaXTwitter , FaLinkedin } from "react-icons/fa6";
 
 
-const Footer = () => {
+const Footer = ({mode}) => {
 
     let Products = ['Features' , 'Testimonials' , 'Highlights' , 'Pricing' , 'FAQs'];
     let Comapny = ['About Us' , 'Careers' , 'Press'];
@@ -17,19 +17,19 @@ const Footer = () => {
               <p className="text-blue-600 font-semibold text-lg">Sitemark</p>
               <div className="flex flex-col gap-y-1">
                 <p className="text-[15px] font-semibold">Join the newsletter</p>
-                <p className="text-sm text-[#47536B]">
+                <p className={`text-sm ${mode ? 'text-[#94A0BB]' : 'text-[#47536B]'}`}>
                   Subscribe for weekly updates. No spams ever!
                 </p>
               </div>
               <div className="flex flex-col gap-y-1">
-                <label className="text-sm">Email</label>
+                <label className={`text-sm ${mode ? 'text-[#94A0BB]' : 'text-[#47536B]'}`}>Email</label>
                 <div className="flex gap-x-2">
                   <input
                     type="text"
                     placeholder="Your email address"
-                    className="border w-64 rounded-lg px-2 py-1 placeholder:text-sm outline-none"
+                    className={`border w-64 rounded-lg px-2 py-1 placeholder:text-xs outline-none text-sm ${mode ? 'border-gray-800 bg-black placeholder:text-gray-500':''}`}
                   />
-                  <Button type="primary" title="Subscribe" />
+                  <Button title="Subscribe" type={`${mode ? 'primaryDark' : 'primary'}`}  />
                 </div>
               </div>
             </div>
@@ -38,7 +38,7 @@ const Footer = () => {
                 <p className="font-semibold mb-1 text-[15px]">Products</p>
                 {Products.map((item) => {
                   return (
-                    <p className="text-sm leading-7 border-b border-gray-300 w-[fit-content] font-semibold text-[#47536B]">
+                    <p className={`text-sm leading-7 border-b cursor-pointer ${mode ? 'border-gray-800' : 'border-gray-300'} w-[fit-content] font-semibold ${mode ? 'text-[#94A0BB]' : 'text-[#47536B]'}`}>
                       {item}
                     </p>
                   );
@@ -48,7 +48,7 @@ const Footer = () => {
                 <p className="font-semibold mb-1 text-[15px]">Company</p>
                 {Comapny.map((item) => {
                   return (
-                    <p className="text-sm leading-7 border-b border-gray-300 w-[fit-content] font-semibold text-[#47536B]">
+                    <p className={`text-sm leading-7 border-b cursor-pointer ${mode ? 'border-gray-800' : 'border-gray-300'} w-[fit-content] font-semibold ${mode ? 'text-[#94A0BB]' : 'text-[#47536B]'}`}>
                       {item}
                     </p>
                   );
@@ -58,7 +58,7 @@ const Footer = () => {
                 <p className="font-semibold mb-1 text-[15px]">Legal</p>
                 {Legal.map((item) => {
                   return (
-                    <p className="text-sm leading-7 border-b border-gray-300 w-[fit-content] font-semibold text-[#47536B]">
+                    <p className={`text-sm leading-7 border-b cursor-pointer ${mode ? 'border-gray-800' : 'border-gray-300'} w-[fit-content] font-semibold ${mode ? 'text-[#94A0BB]' : 'text-[#47536B]'}`}>
                       {item}
                     </p>
                   );
@@ -67,17 +67,17 @@ const Footer = () => {
             </div>
           </div>
 
-          <hr className="mt-[22px] mb-5"></hr>
+          <hr className={`mt-[22px] mb-5 ${mode ? 'border border-gray-900' : ''}`}></hr>
 
 
-          <div className="flex flex-col gap-y-1.5 text-base text-[#47536B]">
+          <div className={`flex flex-col gap-y-1.5 text-sm ${mode ? 'text-[#94A0BB]' : 'text-[#47536B]'}`}>
             <div>
               <p>
-                <span className="border-b-2 border-gray-300 font-semibold">
+                <span className={`border-b-2 ${mode ? 'border-gray-800' : 'border-gray-300'} font-semibold`}>
                   Privacy Policy
                 </span>{" "}
                 •{" "}
-                <span className="border-b-2 border-gray-300 font-semibold">
+                <span className={`border-b-2  ${mode ? 'border-gray-800' : 'border-gray-300'} font-semibold`}>
                   Terms of Service
                 </span>
               </p>
@@ -88,13 +88,13 @@ const Footer = () => {
                 <span className="text-[15px] font-semibold">Sitemark</span> 2024
               </p>
               <div className="flex gap-x-2">
-                <button className="p-2.5 border rounded-md bg-[#F5F6FA4C] hover:bg-gray-200 hover:border-gray-300">
+                <button className={`p-2.5 border rounded-md ${mode ? ' bg-black border-gray-700  hover:bg-transparent hover:border-gray-500' : ' bg-[#F5F6FA4C]  hover:bg-gray-200 hover:border-gray-300'}`}>
                   <FaGithub /> 
                 </button>
-                <button className="p-2.5 border rounded-md bg-[#F5F6FA4C]  hover:bg-gray-200 hover:border-gray-300">
+                <button className={`p-2.5 border rounded-md  ${mode ? ' bg-black border-gray-700 hover:bg-transparent hover:border-gray-500' : ' bg-[#F5F6FA4C] hover:bg-gray-200 hover:border-gray-300'}`}>
                   <FaXTwitter />
                 </button>
-                <button className="p-2.5 border rounded-md bg-[#F5F6FA4C]  hover:bg-gray-200 hover:border-gray-300">
+                <button className={`p-2.5 border rounded-md  ${mode ? ' bg-black border-gray-700 hover:bg-transparent hover:border-gray-500' : ' bg-[#F5F6FA4C] hover:bg-gray-200 hover:border-gray-300'}`}>
                   <FaLinkedin />
                 </button>
               </div>

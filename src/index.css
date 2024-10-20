@@ -19,6 +19,14 @@
     @apply text-white  bg-[#05070A];
 }
 
+.btn-primary-dark-mode{
+    @apply text-[#05070A] bg-white;
+}
+
 .btn-secondary{
-    @apply text-[#05070A];
+    @apply text-[#05070A] bg-transparent;
+}
+
+.btn-secondary-dark-mode{
+    @apply text-white bg-[#05070A];
 }

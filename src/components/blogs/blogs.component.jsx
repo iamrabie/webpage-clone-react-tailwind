@@ -6,7 +6,10 @@ import { IoWifi } from "react-icons/io5";
 
 
 
-const Blogs = () => {
+const Blogs = ({mode}) => {
+
+
+  // console.log("blogs mode " , mode);
 
   let blogCategories = [
     "All Categories",
@@ -48,8 +51,8 @@ const Blogs = () => {
           <div>
             <ul className="flex gap-x-[30px]">
               {blogCategories.map((item) => {
-                return (
-                  <li className={`text-[13px] text-[#556481] font-semibold py-1.5 px-3.5 border border-white rounded-full hover:border-gray-200 hover:bg-gray-100 ${item === 'All Categories' ? 'bg-gray-200' : ''}`}>
+                return(
+                  <li className={`text-[13px] font-semibold py-1.5 px-3.5 border ${mode ? 'hover:bg-gray-900 text-[#94A0BB]' : 'border-white hover:bg-gray-100 text-[#556481] '} rounded-full  ${item === 'All Categories' ? 'bg-gray-200' : ''} ${item === 'All Categories' && mode ? 'bg-transparent border-gray-700' : 'border-none'}`}>
                     {item} 
                   </li>
                 );
@@ -57,8 +60,8 @@ const Blogs = () => {
             </ul>
           </div>
           <div className="flex gap-x-2">
-            <SearchField />
-            <span className="border self-center text-xl p-2 border rounded-md bg-[#F5F6FA4C] hover:bg-gray-200 hover:border-gray-300"><IoWifi /></span>
+            <SearchField mode={mode} />
+            <span className={`border self-center text-xl p-2 border rounded-md ${mode ? ' bg-black border-gray-700  hover:bg-transparent hover:border-gray-500' : ' bg-[#F5F6FA4C]  hover:bg-gray-200 hover:border-gray-300'}`}><IoWifi /></span>
           </div>
         </div>
 
@@ -67,9 +70,9 @@ const Blogs = () => {
           {/* first two blogs */}
           <div className="grid grid-cols-2 gap-x-4">
             {blogsDetails.map((item) => {
-              return (
+              return(
                 <>
-                  <div className="border rounded-lg pb-4 flex flex-col gap-y-[26px] bg-[#F5F6FA] hover:bg-white">
+                  <div className={`border rounded-lg pb-4 flex flex-col gap-y-[26px] ${mode ? 'bg-[#0C1017] hover:bg-black border-gray-800' : 'bg-[#F5F6FA] hover:bg-white'}`}>
                     <div>
                       <img
                         src={item.url}
@@ -82,6 +85,7 @@ const Blogs = () => {
                         title={item.title}
                         subTitle={item.type}
                         text={item.text}
+                        mode={mode}
                       />
                     </div>
                     <div className="flex justify-between pt-1 px-2">
@@ -101,7 +105,7 @@ const Blogs = () => {
           {/*blogs*/}
           <div className="grid grid-cols-3 gap-x-4">
             {/* third blog */}
-            <div className="border rounded-lg flex flex-col gap-y-[26px] bg-[#F5F6FA] hover:bg-white">
+            <div className={`border rounded-lg flex flex-col gap-y-[26px] ${mode ? 'bg-[#0C1017] hover:bg-black border-gray-800' : 'bg-[#F5F6FA] hover:bg-white'}`}>
               <div>
                 <img
                   src="https://picsum.photos/800/450?random=9"
@@ -109,14 +113,15 @@ const Blogs = () => {
                   alt="blog1"
                 />
               </div>
-              <div className="py-4 px-3 h-[210px]">
+              <div className="py-4 px-3 h-[250px]">
                 <Card
                   title="Designing for the future: trends and insights"
                   subTitle="Design"
-                  text="Stay ahead of the curve with the latest design trends and insights. Our design team shares their"
+                  text="Stay ahead of the curve with the latest design trends and insights. Our design team shares their."
+                  mode={mode}
                 />
               </div>
-              <div className="flex justify-between pt-1 pb-4 px-3">
+              <div className="flex justify-between pt-1 px-3">
                 <div className="flex gap-x-2 items-center">
                    <img src='https://mui.com/static/images/avatar/7.jpg' className='h-6 w-6 rounded-full' alt='' />
                    <p className="text-[13px]">Ahmed Ali</p>
@@ -131,12 +136,13 @@ const Blogs = () => {
               {blogsDetails.map((item) => {
                 return (
                   <>
-                    <div className="border rounded-lg bg-[#F5F6FA] hover:bg-white">
-                      <div className="py-4 px-3 h-[204px]">
+                    <div className={`border rounded-lg ${mode ? 'bg-[#0C1017] hover:bg-black border-gray-800' : 'bg-[#F5F6FA] hover:bg-white'}`}>
+                      <div className="py-4 px-3 h-[220px]">
                         <Card
                           title={item.title}
                           subTitle={item.type}
                           text={item.text}
+                          mode={mode}
                         />
                       </div>
                       <div className="flex justify-between pt-2 pb-4 px-3">
@@ -154,7 +160,7 @@ const Blogs = () => {
 
 
             {/* sixth  blog */}
-            <div className="border rounded-lg flex flex-col gap-y-[26px] bg-[#F5F6FA] hover:bg-white">
+            <div className={`border rounded-lg flex flex-col gap-y-[26px] ${mode ? 'bg-[#0C1017] hover:bg-black border-gray-800' : 'bg-[#F5F6FA] hover:bg-white'}`}>
               <div>
                 <img
                   src="https://picsum.photos/800/450?random=6"
@@ -162,14 +168,15 @@ const Blogs = () => {
                   alt="blog1"
                 />
               </div>
-              <div className="py-4 px-3 h-[210px]">
+              <div className="py-4 px-3 h-[250px]">
                 <Card
                   title="Maximizing efficiency with our latest product updates"
                   subTitle="Product"
                   text="Our recent product updates are designed to help you maximize efficiency and achieve more. Get a detailed overview of the new features and improvements that can elevate your workflow."
+                  mode={mode}
                 />
               </div>
-              <div className="flex justify-between pt-1 pb-4 px-3">
+              <div className="flex justify-between pt-1 px-3">
                  <div className="flex gap-x-2 items-center">
                     <img src='https://mui.com/static/images/avatar/7.jpg' className='h-6 w-6 rounded-full' alt='' />
                     <p className="text-[13px]">Ahmed Ali</p>
