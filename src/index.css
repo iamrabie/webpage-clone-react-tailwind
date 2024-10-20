@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.container{
+    @apply w-3/4 mx-auto flex flex-col gap-y-[40px];
+}
+
+.card{
+    @apply grid grid-cols-2 gap-x-[70px] gap-y-[63px];
+}
+
+.btn{
+    @apply text-white text-sm rounded-lg px-3 py-2 font-semibold;
+}
+
+.btn-primary{
+    @apply text-white  bg-[#05070A];
+}
+
+.btn-secondary{
+    @apply text-[#05070A];
+}
